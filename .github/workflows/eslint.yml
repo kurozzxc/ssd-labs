@@ -1,6 +1,9 @@
 name: ESLint Code Analysis
 
 on: [push, pull_request]
+permissions:
+  contents: read
+  security-events: write
 
 jobs:
   eslint:
@@ -17,7 +20,7 @@ jobs:
           restore-keys: ${{ runner.os }}-node-modules
 
       - name: Install Node.js dependencies
-        run: npm install eslint --save-dev
+        run: npm install
 
       - name: Create reports directory
         run: mkdir -p reports
@@ -26,10 +29,10 @@ jobs:
         run: npm install @microsoft/eslint-formatter-sarif --save-dev
 
       - name: Run ESLint with SARIF output
-        run: npx eslint . --format @microsoft/eslint-formatter-sarif --output-file reports/eslint-results.sarif || true
+        run: npx eslint . --format @microsoft/eslint-formatter-sarif --output-file reports/eslint-results.sarif  true
 
       - name: Debug ESLint Output
-        run: cat reports/eslint-results.sarif || echo "No SARIF report generated"
+        run: cat reports/eslint-results.sarif  echo "No SARIF report generated"
 
       - name: Upload SARIF report
         uses: github/codeql-action/upload-sarif@v3
