@@ -17,7 +17,7 @@ jobs:
           restore-keys: ${{ runner.os }}-node-modules
 
       - name: Install Node.js dependencies
-        run: npm install eslint eslint-scope@5.1.1 --save-dev
+        run: npm install eslint eslint-scope@5.1.1 estraverse@4.3.0 --save-dev
 
       - name: Create reports directory
         run: mkdir -p reports
