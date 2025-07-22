@@ -17,7 +17,7 @@ jobs:
           restore-keys: ${{ runner.os }}-node-modules
 
       - name: Install Node.js dependencies
-        run: npm install
+        run: npm install eslint –save-dev
 
       - name: Create reports directory
         run: mkdir -p reports
