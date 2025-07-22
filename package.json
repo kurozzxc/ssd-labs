@@ -5,6 +5,7 @@
   },
   "devDependencies": {
     "chai": "^5.1.2",
+    "eslint-plugin-react": "^7.37.5",
     "mocha": "^11.0.1",
     "selenium-webdriver": "^4.27.0"
   },
