@@ -15,7 +15,6 @@ export default defineConfig([
       react: pluginReact,
       security: pluginSecurity,
     },
-    extends: ["plugin:react/recommended"],
     rules: {
       ...js.configs.recommended.rules,
       ...pluginReact.configs.flat.recommended.rules,
